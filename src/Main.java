@@ -229,7 +229,7 @@ public class Main {
         System.out.println("CIS1068 Coursework - Calculate Bank Withdrawn Charge");
         System.out.print("Enter the number for the withdrawal of money: ");
         try {
-            // Get the age of the person as a string, we need this so we can validate the input later
+            // Get the amount as a string, we need this so we can validate the input later
             String withdrawnString = bufferReader.readLine();
             // Validate user input
             while(!Validation.validateInt(String.valueOf(withdrawnString))) {
