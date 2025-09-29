@@ -39,8 +39,12 @@ public class Main {
         Main.withdrawnFromBank();
         System.out.println("Calculate Commission");
         System.out.println(separator);
-        // Solve the Bank Withdrawal problem
+        // Solve the Commission problem
         Main.calculateCommission();
+        System.out.println("Calculate Fahrenheit and Celsius");
+        System.out.println(separator);
+        // Solve the Commission problem
+        Main.calculateTemperature();
     }
 
     public static void calculatePersonCharge(){
@@ -301,6 +305,51 @@ public class Main {
                 System.out.println("Bonus Commission: " + String.valueOf(fBonusCommissionResult));
                 System.out.println("Total Commission: " + String.valueOf(fBonusCommissionResult + fResultCommission));
             }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void calculateTemperature(){
+        double dNumberFahrenheitCelsius = 0;
+        double dNumberFahrenheitCelsiusResult = 0;
+        double dNumberCelsiusFahrenheit = 0;
+        double dNumberCelsiusFahrenheitResult = 0;
+        // Create buffer reader object
+        BufferedReader bufferReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("CIS1068 Coursework - Calculate Temperature");
+        System.out.print("Enter Temperature in Fahrenheit for Celsius Conversion: ");
+        try {
+            // Get the Celsius value from Fahrenheit as a string, we need this so we can validate the input later
+            String fahrenheitString = bufferReader.readLine();
+            // Validate user input
+            while(!Validation.validateInt(String.valueOf(fahrenheitString))) {
+                System.out.println("\nInvalid input. Please enter numerical values only.\n");
+                System.out.print("Enter Temperature in Fahrenheit for Celsius Conversion:");
+                fahrenheitString = bufferReader.readLine();
+            }
+            // Convert user input to integer
+            dNumberFahrenheitCelsius = Integer.parseInt(fahrenheitString);
+            dNumberFahrenheitCelsiusResult = (dNumberFahrenheitCelsius - 32) * ((double) 5 / 9);
+            String fahrenheitMessage = ("\nTemperature Conversion From: " + String.valueOf(dNumberFahrenheitCelsius) +
+                                        " to Celsius " + String.valueOf(dNumberFahrenheitCelsiusResult));
+
+            System.out.print(fahrenheitMessage);
+            System.out.print("\nEnter Temperature in Celsius for Fahrenheit Conversion:");
+            // Get the Fahrenheit value from Celsius as a string, we need this so we can validate the input later
+            String celsiusString = bufferReader.readLine();
+            // Validate user input
+            while(!Validation.validateInt(String.valueOf(celsiusString))) {
+                System.out.println("\nInvalid input. Please enter numerical values only.\n");
+                System.out.print("Enter Temperature in Celsius for Fahrenheit Conversion:: ");
+                celsiusString = bufferReader.readLine();
+            }
+            // Convert user input to integer
+            dNumberCelsiusFahrenheit = Integer.parseInt(celsiusString);
+            dNumberCelsiusFahrenheitResult = (dNumberCelsiusFahrenheit * ((double) 9 / 5)) + 32;
+            String celsiusMessage = ("\nTemperature Conversion From: " + String.valueOf(dNumberCelsiusFahrenheit) +
+                                     " to Celsius " + String.valueOf(dNumberCelsiusFahrenheitResult));
+            System.out.println(celsiusMessage);
         } catch (IOException e){
             e.printStackTrace();
         }
