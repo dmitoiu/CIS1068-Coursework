@@ -19,21 +19,23 @@ public class Main {
         Main.calculatePersonCharge();
         System.out.println("Get Even Odd Number:");
         System.out.println(separator);
-        // Solve charge problem
+        // Solve Odd Even problem
         Main.getOddEvenNumber();
         System.out.println("Employee Manager:");
         System.out.println(separator);
-        // Solve charge problem
+        // Solve Employee Management problem
         Main.employeeManager();
         System.out.println("Leap Year:");
         System.out.println(separator);
-        // Solve charge problem extended
+        // Solve Leap year problem
         Main.getLeapYear();
         System.out.println("Calculate Charge Extended:");
         System.out.println(separator);
+        // Solve the Charge Extended
         Main.calculatePersonChargeExtended();
         System.out.println("Bank Money Withdrawal");
         System.out.println(separator);
+        // Solve the Bank Withdrawal problem
         Main.withdrawnFromBank();
     }
 
