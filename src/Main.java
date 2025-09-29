@@ -37,6 +37,10 @@ public class Main {
         System.out.println(separator);
         // Solve the Bank Withdrawal problem
         Main.withdrawnFromBank();
+        System.out.println("Calculate Commission");
+        System.out.println(separator);
+        // Solve the Bank Withdrawal problem
+        Main.calculateCommission();
     }
 
     public static void calculatePersonCharge(){
@@ -253,6 +257,50 @@ public class Main {
             }
             String message = ("Withdrawn " + String.valueOf(personCharge) + " New Balance " + String.valueOf(fResult));
             System.out.println(message);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void calculateCommission(){
+        int iNumberOfTotalSales = 0;
+        int iNumberOfSales = 0;
+        float fCommission = (float) 0.1;
+        float fCommissionBonus = (float) 0.25;
+        float fResultCommission = (float) 0.0;
+        float fBonusCommissionResult = (float) 0.0;
+        // Create buffer reader object
+        BufferedReader bufferReader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("CIS1068 Coursework - Calculate Commission");
+        System.out.print("Enter Total Sales: ");
+        try {
+            // Get the total sales as a string, we need this so we can validate the input later
+            String totalSalesString = bufferReader.readLine();
+            // Validate user input
+            while(!Validation.validateInt(String.valueOf(totalSalesString))) {
+                System.out.println("\nInvalid input. Please enter numerical values only.\n");
+                System.out.print("Enter Total Sales: ");
+                totalSalesString = bufferReader.readLine();
+            }
+            System.out.print("Enter the number of items sold: ");
+            // Get the sales as a string, we need this so we can validate the input later
+            String salesString = bufferReader.readLine();
+            // Validate user input
+            while(!Validation.validateInt(String.valueOf(salesString))) {
+                System.out.println("\nInvalid input. Please enter numerical values only.\n");
+                System.out.print("Enter the number of items sold: ");
+                salesString = bufferReader.readLine();
+            }
+            // Convert user input to integer
+            iNumberOfTotalSales = Integer.parseInt(totalSalesString);
+            iNumberOfSales = Integer.parseInt(salesString);
+            fResultCommission = (fCommission * iNumberOfTotalSales);
+            System.out.println("Commission: " + String.valueOf(fResultCommission));
+            if(iNumberOfSales > 50) {
+                fBonusCommissionResult = (fCommissionBonus * fResultCommission);
+                System.out.println("Bonus Commission: " + String.valueOf(fBonusCommissionResult));
+                System.out.println("Total Commission: " + String.valueOf(fBonusCommissionResult + fResultCommission));
+            }
         } catch (IOException e){
             e.printStackTrace();
         }
