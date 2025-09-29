@@ -227,14 +227,14 @@ public class Main {
         // Create buffer reader object
         BufferedReader bufferReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("CIS1068 Coursework - Calculate Bank Withdrawn Charge");
-        System.out.print("Enter the number for the withdrawal of money: ");
+        System.out.print("Enter the amount for the withdrawal of money: ");
         try {
             // Get the amount as a string, we need this so we can validate the input later
             String withdrawnString = bufferReader.readLine();
             // Validate user input
             while(!Validation.validateInt(String.valueOf(withdrawnString))) {
                 System.out.println("\nInvalid input. Please enter numerical values only.\n");
-                System.out.print("Enter the number for the withdrawal of money: ");
+                System.out.print("Enter the amount for the withdrawal of money: ");
                 withdrawnString = bufferReader.readLine();
             }
             // Convert user input to integer
